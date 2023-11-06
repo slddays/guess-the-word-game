@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: url('./assets/bg-guess-the-word.png') no-repeat center center fixed;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  background: #101626;
+  border: none;
+  border-radius: 10px;
+  padding: 2.5rem;
+  width: 450px;
+}
+
+.display {
+  background: #4a5567;
+  border: none;
+  border-radius: 10px;
+  color: #97a3b6;
+  font-size: 2rem;
+  font-weight: 600;
+  filter: drop-shadow(0 5px #030616);
+  margin: 2rem 0;
+  padding: 1.5rem;
+}
+
+.labels {
+  color: #4a5567;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.input {
+  display: inline-flex;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 3rem 0;
+}
+
+.letter {
+  color: #f2f5f9;
+  border: 2px solid #4a5567;
+  border-radius: 10px;
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+button {
+  background: #c951e7;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #f2f5f9;
+  font-size: 0.875rem;
+  font-weight: 400;
+  filter: drop-shadow(0 5px #672171);
+  padding: 0.65rem 2.5rem;
+  margin: 0 1rem;
+}
+
+/*TODO LIST:
+- Fit background image width 100% for all screen sizes
+- Display: Each letter has its own span + margin
+- Tries: circle shapes purple (#7429C6) .tries-active .tries-completed
+- Mistakes: letter (#97A3B6) and 0.875rem size
+- Input: Active letter div has a color of (#672171) and underscore
+- Stylize button:hover?
+- responsive design for screen sizes 1280px, 640px, iphone size
+*/
