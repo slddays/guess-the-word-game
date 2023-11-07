@@ -28,7 +28,7 @@ body {
   width: 450px;
 }
 
-.display {
+.display-container {
   background: #4a5567;
   border: none;
   border-radius: 10px;
@@ -40,25 +40,33 @@ body {
   padding: 1.5rem;
 }
 
+.letter-display {
+  margin: 0 0.5rem;
+}
+
 .labels {
   color: #4a5567;
   font-weight: 600;
   font-size: 0.75rem;
 }
 
-.input {
+.input-container {
   display: inline-flex;
   font-size: 1.25rem;
   font-weight: 600;
   margin: 3rem 0;
 }
 
-.letter {
-  color: #f2f5f9;
+.letter-input {
+  background: inherit;
   border: 2px solid #4a5567;
   border-radius: 10px;
+  color: #f2f5f9;
+  font-size: 1.25rem;
   margin: 0 0.25rem;
-  padding: 0.5rem 1rem;
+  height: 2.75rem;
+  width: 2.75rem;
+  text-align: center;
 }
 
 button {
