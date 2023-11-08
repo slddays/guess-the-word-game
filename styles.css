@@ -45,9 +45,45 @@ body {
 }
 
 .labels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   color: #4a5567;
   font-weight: 600;
   font-size: 0.75rem;
+  margin: 0 2rem;
+}
+
+.try-container {
+  display: inherit;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.mistakes-container {
+  margin-left: 2rem;
+}
+
+.circles {
+  display: inherit;
+}
+
+.step-circle {
+  background: #4a5567;
+  border-radius: 8px;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: 0 0.2rem;
+}
+
+.completed {
+  background: #7429c6;
+}
+
+.mistake {
+  color: #97a3b6;
+  font-size: 0.875rem;
 }
 
 .input-container {

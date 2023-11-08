@@ -14,15 +14,24 @@
 <body>
     <main class="container">
         <section class="logo"><img src="./assets/wordScramblle.svg" alt=""></section>
-        <section class="display">placeholder
+        <section class="display-container">
         </section>
         <section class="labels">
-            <span class="tries">Tries:</span>
-            <span class="mistakes">Mistakes:</span>
+            <div class="try-container">
+                <p class="try">Tries &lpar;0&sol;5&rpar;&colon;</p>
+                <div class="circles">
+                    <div class="step-circle" id='step1'></div>
+                    <div class="step-circle" id='step2'></div>
+                    <div class="step-circle" id='step3'></div>
+                    <div class="step-circle" id='step4'></div>
+                    <div class="step-circle" id='step5'></div>
+                </div>
+            </div>
+            <div class="mistake-container">
+                <p>Mistakes&colon; <span class="mistake"></span></p>
+            </div>
         </section>
-        <section class="input">
-            <div class="letter">a</div>
-            <div class="letter">b</div>
+        <section class="input-container">
         </section>
         <section class="btns">
             <button id="randomBtn">Random</button>
