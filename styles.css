@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;600&display=swap');
 
+/*TODO LIST:
+- Fit background image width 100% for all screen sizes
+- Stylize button:hover?
+- responsive design for screen sizes 1280px, 640px, iphone size
+*/
+
 * {
   box-sizing: border-box;
   font-family: 'Outfit', sans-serif;
@@ -21,17 +27,18 @@ body {
 }
 
 .container {
-  background: #101626;
+  /* background: #101626; */
+  background: #030616;
   border: none;
-  border-radius: 10px;
+  border-radius: 1rem;
   padding: 2.5rem;
   width: 450px;
 }
 
-.display-container {
+.display {
   background: #4a5567;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   color: #97a3b6;
   font-size: 2rem;
   font-weight: 600;
@@ -44,7 +51,7 @@ body {
   margin: 0 0.5rem;
 }
 
-.labels {
+.progress {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,10 +90,10 @@ body {
 
 .mistake {
   color: #97a3b6;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
-.input-container {
+.input {
   display: inline-flex;
   font-size: 1.25rem;
   font-weight: 600;
@@ -96,19 +103,25 @@ body {
 .letter-input {
   background: inherit;
   border: 2px solid #4a5567;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   color: #f2f5f9;
   font-size: 1.25rem;
   margin: 0 0.25rem;
   height: 2.75rem;
   width: 2.75rem;
   text-align: center;
+  outline: none;
+}
+
+.letter-input:focus {
+  border: 2px solid #672171;
+  outline: none;
 }
 
 button {
   background: #c951e7;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   cursor: pointer;
   color: #f2f5f9;
   font-size: 0.875rem;
@@ -117,13 +130,3 @@ button {
   padding: 0.65rem 2.5rem;
   margin: 0 1rem;
 }
-
-/*TODO LIST:
-- Fit background image width 100% for all screen sizes
-- Display: Each letter has its own span + margin
-- Tries: circle shapes purple (#7429C6) .tries-active .tries-completed
-- Mistakes: letter (#97A3B6) and 0.875rem size
-- Input: Active letter div has a color of (#672171) and underscore
-- Stylize button:hover?
-- responsive design for screen sizes 1280px, 640px, iphone size
-*/
