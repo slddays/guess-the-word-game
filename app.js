@@ -1,16 +1,21 @@
-const list = ['apple', 'banana', 'pumpkin', 'table'];
-
-const displayContainer = document.querySelector('.display-container');
-const inputContainer = document.querySelector('.input-container');
-const tryLabel = document.querySelector('.try');
-const allCompleted = document.querySelectorAll('.step-circle');
-const mistakeLabel = document.querySelector('.mistake');
+const display = document.querySelector('.display');
+const input = document.querySelector('.input');
+const tryText = document.querySelector('.try');
+const mistakeText = document.querySelector('.mistake');
+const allCircles = document.querySelectorAll('.step-circle');
 const randomBtn = document.getElementById('randomBtn');
 const resetBtn = document.getElementById('resetBtn');
+
+const list = ['flower', 'valley', 'lake', 'meadow']; // hard-coded list
 let tries = 0;
 
+randomBtn.addEventListener('click', grabWord);
+resetBtn.addEventListener('click', removeContent); // how to delete input text?
+
 function grabWord() {
-  emptyContainers();
+  display.innerHTML = '';
+  input.innerHTML = '';
+  removeContent();
   showPrompt();
 }
 
@@ -19,14 +24,12 @@ function showPrompt() {
   const answer = word.split('');
   const shuffleWord = word.shuffle();
 
-  console.log(answer);
-
   for (let i = 0; i < shuffleWord.length; i++) {
     // Create span
     const letterDisplay = document.createElement('span');
     letterDisplay.textContent = shuffleWord[i];
     letterDisplay.classList.add('letter-display');
-    displayContainer.appendChild(letterDisplay);
+    display.appendChild(letterDisplay);
 
     // Create input
     const letterInput = document.createElement('input');
@@ -35,34 +38,40 @@ function showPrompt() {
     letterInput.type = 'text';
     letterInput.maxLength = '1';
     letterInput.value = '';
-    inputContainer.appendChild(letterInput);
+    input.appendChild(letterInput);
   }
 
-  // Input logic
   const allInputs = document.querySelectorAll('input');
+
   allInputs.forEach((input, index) => {
     input.addEventListener('input', (e) => {
       input.textContent = e.target.value;
-      input.setAttribute = ('value', e.target.value);
+      input.setAttribute('value', `${e.target.value}`);
 
-      if (input.value === answer[index]) {
-        console.log('success');
-        console.log('----------');
-      } else {
-        tries++;
-        tryLabel.textContent = `Tries (${tries}/5):`;
-        document.getElementById(`step${tries}`).classList.add('completed');
-        mistakeLabel.textContent += `${input.value}, `;
-        console.log(tries, 'fail');
-        if (tries === 5) {
-          console.log('you have failed');
+      let letters = /^[a-zA-Z]+$/;
+      const nextInputIndex = index + 1;
+      if (input.value.match(letters) && nextInputIndex < allInputs.length) {
+        document.getElementById(`input${nextInputIndex}`).focus();
+        if (input.value === answer[index]) {
+          // ALERT: answer = input string
+        } else {
+          tries++;
+          tryText.textContent = `Tries (${tries}/5):`;
+          mistakeText.textContent += `${input.value}, `;
+          if (tries > 5) {
+            // ALERT: failed the game
+            grabWord();
+          } else {
+            document.getElementById(`step${tries}`).classList.add('completed');
+          }
         }
+      } else {
+        document.activeElement.blur();
       }
     });
   });
 }
 
-// Shuffle function
 String.prototype.shuffle = function () {
   const a = this.split(''), //split string into array
     n = a.length; // array length
@@ -81,23 +90,14 @@ function randomNum(max) {
   return Math.floor(Math.random() * max);
 }
 
-function emptyContainers() {
-  displayContainer.innerHTML = '';
-  inputContainer.innerHTML = '';
-  tryLabel.textContent = 'Tries (0/5):';
-  allCompleted.forEach((el) => {
+function removeContent() {
+  tries = 0;
+  tryText.textContent = 'Tries (0/5):';
+  allCircles.forEach((el) => {
     el.classList.remove('completed');
   });
-  mistakeLabel.textContent = '';
+  mistakeText.textContent = '';
 }
 
-randomBtn.addEventListener('click', grabWord);
-resetBtn.addEventListener('click', function () {
-  tryLabel.textContent = 'Tries (0/5):';
-  allCompleted.forEach((el) => {
-    el.classList.remove('completed');
-  });
-  mistakeLabel.textContent = '';
-});
-
+//fire up a random word when page loads
 showPrompt();
