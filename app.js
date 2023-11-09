@@ -1,3 +1,7 @@
+/* TODO LIST:
+fix input logic. pushing to new word array + other things are breaking
+*/
+
 const display = document.querySelector('.display');
 const input = document.querySelector('.input');
 const tryText = document.querySelector('.try');
@@ -41,32 +45,37 @@ function showPrompt() {
     input.appendChild(letterInput);
   }
 
+  const finalAnswer = [];
   const allInputs = document.querySelectorAll('input');
-
   allInputs.forEach((input, index) => {
     input.addEventListener('input', (e) => {
       input.textContent = e.target.value;
       input.setAttribute('value', `${e.target.value}`);
+      finalAnswer.push(document.getElementById(`input${index}`).value); //push each input into a new array
 
       let letters = /^[a-zA-Z]+$/;
       const nextInputIndex = index + 1;
       if (input.value.match(letters) && nextInputIndex < allInputs.length) {
         document.getElementById(`input${nextInputIndex}`).focus();
-        if (input.value === answer[index]) {
-          // ALERT: answer = input string
-        } else {
-          tries++;
-          tryText.textContent = `Tries (${tries}/5):`;
-          mistakeText.textContent += `${input.value}, `;
-          if (tries > 5) {
-            // ALERT: failed the game
-            grabWord();
-          } else {
-            document.getElementById(`step${tries}`).classList.add('completed');
-          }
-        }
       } else {
         document.activeElement.blur();
+      }
+
+      tries++;
+      if (input.value !== answer[index] && tries < 6) {
+        tryText.textContent = `Tries (${tries}/5):`;
+        mistakeText.textContent += `${input.value}, `;
+        document.getElementById(`step${tries}`).classList.add('completed');
+      } else if (tries > 7) {
+        alert('😭 Game over...');
+        grabWord();
+      } else if (
+        input.value === answer[index] &&
+        tries < 6 &&
+        answer.join('') === finalAnswer.join('')
+      ) {
+        alert('🎉 Success!');
+        grabWord();
       }
     });
   });
