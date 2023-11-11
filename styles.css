@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
 
-/*TODO LIST:
-- Fit background image width 100% for all screen sizes
+/*TODO LIST (11/11):
 - Stylize button:hover?
 - responsive design for screen sizes 1280px, 640px, iphone size
 */
@@ -14,7 +13,8 @@
 }
 
 html {
-  background: url('./assets/bg-guess-the-word.png') no-repeat center center fixed;
+  background: url('./assets/bg-guess-the-word.png');
+  background-size: cover;
 }
 
 body {
@@ -27,11 +27,10 @@ body {
 }
 
 .container {
-  /* background: #101626; */
   background: #030616;
   border: none;
   border-radius: 1rem;
-  padding: 2.5rem;
+  padding: 2rem;
   width: 450px;
 }
 
@@ -41,10 +40,10 @@ body {
   border-radius: 0.5rem;
   color: #97a3b6;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 500;
   filter: drop-shadow(0 5px #030616);
   margin: 2rem 0;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .letter-display {
@@ -95,8 +94,6 @@ body {
 
 .input {
   display: inline-flex;
-  font-size: 1.25rem;
-  font-weight: 600;
   margin: 3rem 0;
 }
 
@@ -106,6 +103,7 @@ body {
   border-radius: 0.5rem;
   color: #f2f5f9;
   font-size: 1.25rem;
+  font-weight: 400;
   margin: 0 0.25rem;
   height: 2.75rem;
   width: 2.75rem;
@@ -129,4 +127,67 @@ button {
   filter: drop-shadow(0 5px #672171);
   padding: 0.65rem 2.5rem;
   margin: 0 1rem;
+}
+
+@media (max-width: 641px) {
+  html {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 376px) {
+  html {
+    background-position: center center;
+  }
+
+  .container {
+    width: 320px;
+  }
+
+  .display {
+    font-size: 1.75rem;
+    padding: 0.75rem;
+  }
+
+  .letter-display {
+    margin: 0 0.2rem;
+  }
+
+  .progress {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .try-container {
+    display: inline-flex;
+    margin: inherit;
+  }
+
+  .mistakes-container {
+    margin: inherit;
+  }
+
+  .input {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  .letter-input {
+    font-size: 1rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .btns {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  button {
+    font-size: 0.75rem;
+    padding: 0.5rem 1.25rem;
+    margin: 0 0.5rem;
+  }
 }
