@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.setAttribute('value', `${e.target.value}`);
 
         // letter inputs + focus/blur
-        let letters = /^[a-zA-Z]+$/;
+        const letters = /^[a-zA-Z]+$/;
         const nextInputIndex = index + 1;
         if (input.value.match(letters) && nextInputIndex < allInputs.length) {
           document.getElementById(`input${nextInputIndex}`).focus();
@@ -59,13 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
           document.activeElement.blur();
         }
 
-        // condition: correct inputs get pushed into new array
-        if (input.value === answer[index]) {
-          finalAnswer.push(document.getElementById(`input${index}`).value);
-        }
-
         //condition: wrong inputs
-        if (input.value !== answer[index]) {
+        if (input.value.match(letters) && input.value !== answer[index]) {
           tries++;
           circleIndex++;
           if (tries < 6) {
@@ -76,6 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('😭 Game over...');
             grabWord();
           }
+        }
+
+        // condition: correct inputs get pushed into new array
+        if (input.value === answer[index]) {
+          finalAnswer.push(document.getElementById(`input${index}`).value);
         }
 
         // condition: solved
