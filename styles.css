@@ -129,6 +129,11 @@ button {
   margin: 0 1rem;
 }
 
+button:hover {
+  background: #bb6dff;
+  filter: drop-shadow(0 5px #601ec2);
+}
+
 @media (max-width: 641px) {
   html {
     background-position: center center;
