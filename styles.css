@@ -46,7 +46,7 @@ body {
   padding: 1rem;
 }
 
-.letter-display {
+.display__letter {
   margin: 0 0.5rem;
 }
 
@@ -61,17 +61,17 @@ body {
   margin: 0 2rem;
 }
 
-.try-container {
+.progress__try {
   display: inherit;
   align-items: center;
   margin-right: 2rem;
 }
 
-.mistakes-container {
+.progress__mistake {
   margin-left: 2rem;
 }
 
-.circles {
+.circle {
   display: inherit;
 }
 
@@ -87,7 +87,7 @@ body {
   background: #7429c6;
 }
 
-.mistake {
+.progress__mistake--text {
   color: #97a3b6;
   font-size: 1rem;
 }
@@ -97,7 +97,7 @@ body {
   margin: 3rem 0;
 }
 
-.letter-input {
+.input__letter {
   background: inherit;
   border: 2px solid #4a5567;
   border-radius: 0.5rem;
@@ -111,7 +111,7 @@ body {
   outline: none;
 }
 
-.letter-input:focus {
+.input__letter:focus {
   border: 2px solid #672171;
   outline: none;
 }
@@ -154,7 +154,7 @@ button:hover {
     padding: 0.75rem;
   }
 
-  .letter-display {
+  .display__letter {
     margin: 0 0.2rem;
   }
 
@@ -163,12 +163,12 @@ button:hover {
     margin: 0 auto;
   }
 
-  .try-container {
+  .progress__try {
     display: inline-flex;
     margin: inherit;
   }
 
-  .mistakes-container {
+  .progress__mistake {
     margin: inherit;
   }
 
@@ -179,13 +179,13 @@ button:hover {
     margin: 2rem 0;
   }
 
-  .letter-input {
+  .input__letter {
     font-size: 1rem;
     height: 2rem;
     width: 2rem;
   }
 
-  .btns {
+  .btn {
     display: inline-flex;
     justify-content: space-between;
   }

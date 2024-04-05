@@ -1,44 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./styles.css"
+    />
     <title>Word Scramblle</title>
-</head>
+    <script
+      defer
+      src="./app.js"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <main class="container">
-        <section class="logo"><img src="./assets/wordScramblle.svg" alt=""></section>
-        <section class="display">
-        </section>
-        <section class="progress">
-            <div class="try-container">
-                <p class="try">Tries &lpar;0&sol;5&rpar;&colon;</p>
-                <div class="circles">
-                    <div class="step-circle" id='step1'></div>
-                    <div class="step-circle" id='step2'></div>
-                    <div class="step-circle" id='step3'></div>
-                    <div class="step-circle" id='step4'></div>
-                    <div class="step-circle" id='step5'></div>
-                </div>
-            </div>
-            <div class="mistake-container">
-                <p>Mistakes&colon; <span class="mistake"></span></p>
-            </div>
-        </section>
-        <section class="input">
-        </section>
-        <section class="btns">
-            <button id="randomBtn">Random</button>
-            <button id="resetBtn">Reset</button>
-        </section>
-    </main>
-    <script src="./app.js"></script>
-</body>
+      <!-- Logo -->
+      <section class="logo">
+        <img
+          src="./assets/wordScramblle.svg"
+          alt=""
+        />
+      </section>
 
+      <!-- Display -->
+      <section class="display"></section>
+
+      <!-- Progress -->
+      <section class="progress">
+        <div class="progress__try">
+          <p class="progress__try--text">Tries &lpar;0&sol;5&rpar;&colon;</p>
+          <div class="circle">
+            <div
+              class="step-circle"
+              data-step="1"
+            ></div>
+            <div
+              class="step-circle"
+              data-step="2"
+            ></div>
+            <div
+              class="step-circle"
+              data-step="3"
+            ></div>
+            <div
+              class="step-circle"
+              data-step="4"
+            ></div>
+            <div
+              class="step-circle"
+              data-step="5"
+            ></div>
+          </div>
+        </div>
+        <div class="progress__mistake">
+          <p>Mistakes&colon; <span class="progress__mistake--text"></span></p>
+        </div>
+      </section>
+
+      <!-- Input -->
+      <section class="input"></section>
+
+      <!-- Buttons -->
+      <section class="btn">
+        <button
+          class="btn--random"
+          id="randomBtn"
+        >
+          Random
+        </button>
+        <button
+          class="btn--reset"
+          id="resetBtn"
+        >
+          Reset
+        </button>
+      </section>
+    </main>
+  </body>
 </html>
