@@ -10,7 +10,6 @@ const list = ['flower', 'valley', 'lake', 'meadow', 'ocean']; // hard-coded list
 let userAnswer = [];
 let tries = 0;
 const maxTry = 6;
-let currTry = 0;
 
 let word, wordShuffled;
 
@@ -32,7 +31,6 @@ String.prototype.shuffle = function () {
 function resetContent() {
   userAnswer = [];
   tries = 0;
-  currTry = 0;
 
   tryText.textContent = 'Tries (0/5):';
   mistakeText.textContent = '';
@@ -53,7 +51,6 @@ function checkAnswer(el, i) {
   // Input is wrong
   if (el.value !== answer[i]) {
     tries++;
-    currTry++;
 
     if (tries < maxTry) {
       const currStepEl = document.querySelector(`.step-circle[data-step="${tries}"]`);
